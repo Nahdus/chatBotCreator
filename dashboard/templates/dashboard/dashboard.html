@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" 
+    href="{% static 'dashboard/dashboard.css'%}">
+    <!-- <script src="{% static "dashboard/overlay.js"%}"></script> -->
+    <!-- jquery -->
+    <script src="{% static 'jquery/jquery.js'%}"></script>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#fer">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+    
+    <a>
+    <div id="myBtn" class = "createBotButton"><span>Create a bot</span></div>
+    </a>
+    
+            <div id="myModal" class="modal">
+                    {% include "dashboard/createbotForm.html" %}  
+            </div>
+            
+   
+            <div>
+                    {% include "dashboard/botlist.html" %}  
+            </div>
+    
+    
+    
+    <script src='{%static "dashboard/popup.js" %}'></Script>
+</body>
+</html>

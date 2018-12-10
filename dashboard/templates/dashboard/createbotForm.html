@@ -1,0 +1,18 @@
+
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="" method="post" enctype="multipart/form-data" class="center" >
+        <h2 class="form-heading">Enter bot name</h2>
+        {% csrf_token %}
+       
+        {% for field in form %}
+        <span>{{ field.errors }}</span>
+        
+            {{field}}
+            
+        {% endfor %}
+        <br>
+        <Input class="createBotButton2" type="submit" value='Create'/>
+
+    </form>
+</div>

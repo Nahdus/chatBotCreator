@@ -1,0 +1,124 @@
+{% extends "edit_bot\base.html" %}
+{%load static%}
+
+
+{% block app_content %}
+{% block css %}
+    {{ form_media.css }}
+{% endblock %}
+{% block js %}
+    {{ form_media.js }}
+{% endblock %}
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'edit_bot/flow.css' %}"/>
+<script src="{% static 'tagulous/tagulous.js' %}"></script>
+<div class="modal-content">
+    
+
+    {% comment %} <span class="close">&times;</span> {% endcomment %}
+
+    {% comment %} delete button {% endcomment %}
+    <a href="{% url 'dashboard:home' %}">Home</a>
+    <a href="{% url 'dashboard:deletebot' botid %}">Delete Bot</a>
+
+    <div class='errorMessages'>
+        {{error}}
+        {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    
+    </div>
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <h2 class="form-heading"></h2>
+        {% csrf_token %}
+       
+
+        <table>
+            {{ form.as_table }}
+            {{endfield}}
+            
+        <br>
+        {% for hiddenFIeld in form.hidden_fields %}
+
+        {{hiddenFIeld}}
+        {% endfor %}
+            <tr><td></td><td><Input  type="submit" value='Create'/></td></tr>
+        </table>
+
+        {% comment %} {% for field in form.visible_fields %}
+        
+        <span>{{ field.label }}</span><br>
+        <span>{{ field.errors }}</span><br>
+        
+            {{field}}<br>
+        
+        
+        {% endfor %} {% endcomment %}
+       
+        
+               
+        
+
+        
+        
+        
+
+    </form>
+    </div>
+
+
+
+    <div class = flowdiagram>
+        <div class = flowNodecontainer>
+            <a>
+            <span>start</span>
+            </a>
+        </div>
+        <div id="line1"></div>
+    {% for flow,end in Flows_and_ends %}
+        <div class = flowNodecontainer>
+            <a>
+                <span>id: {{flow.id}}</span><br>
+                <span>Name: {{flow.FlowName}}</span><br>
+                <span>question: {{flow.Question}}</span><br>
+                <span>answer: {{flow.Answers}}</span><br>
+                <span>End: {{end.end}}</span><br>
+                <span>words: {{flow.words}}</span><br>
+                <span>Order: {{flow.order}}</span><br>
+                
+                {% comment %} <a href='./edit/{{flow.id}}'>Edit</a> {% endcomment %}
+                <a href="{% url 'dashboard:edit_bot:editFlow' botid flow.id %}">Edit</a>
+                <a href="{% url 'dashboard:edit_bot:deleteFlow' botid flow.id %}">Delete</a>
+            </a>
+            
+        </div>
+        <div id="line1"></div>
+        {% empty %}
+            <div class = flowNodecontainer>
+            <h2>add your flow</h2>
+            </div>
+        <div id="line1"></div>
+        {% endfor%}
+        <div class = flowNodecontainer>
+            <a>
+            <span>End</span>
+            </a>
+        </div>
+    </div>
+<div id="clear"></div>
+    
+{% endblock %}
+   
+
+
+
+
+

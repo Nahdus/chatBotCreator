@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" 
+    href="{% static 'dashboard/botlist.css'%}">
+<div class="grid-container">
+
+        
+        
+            {% for bot in bots %}
+            <a class='eachBot' href={{bot.id}}><div class="grid-item"  >{{bot.Name}}</div></a>
+            {% empty %}
+            <div class='info'>No bots yet</h1>
+            {% endfor %}
+            
+        
+        
+        
+</div>

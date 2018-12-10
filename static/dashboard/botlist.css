@@ -1,0 +1,28 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid #08264D;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .grid-container .info{
+  font-size: 37px;
+  color: wheat;
+  font-family: monospace;
+  }
+
+  a.eachBot {
+    text-decoration: none;
+}
+
+  

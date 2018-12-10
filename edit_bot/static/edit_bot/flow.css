@@ -1,0 +1,52 @@
+.flowNodecontainer a {
+    display:block;
+    color:#000;
+    text-decoration:none;
+    background-color:#f6f6;
+    height:auto;
+    font-size: medium;
+ }
+
+ #line1 {
+    font-size:0;
+    width:1px;
+    height:20px;
+    color:#fff;
+    background-color:#000;
+    margin:auto;
+ } 
+
+
+ .flowdiagram {
+    width: 580px;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 11px;
+    text-align: center;
+    margin: auto;
+}
+
+
+
+.flowdiagram {
+    width: 300px;
+    
+    margin: auto;
+}
+.modal-content {
+    
+    float: left;
+       
+}
+.flowdiagram {
+    
+    float: left;
+    width: 400px;
+    margin-top: 73px;
+    margin-left: 45px;
+    
+    
+}
+#clear {
+    clear: both;
+}
+
